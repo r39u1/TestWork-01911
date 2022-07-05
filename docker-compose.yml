@@ -55,6 +55,15 @@ services:
       - dbdata:/var/lib/mysql
       - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
 
+  phpmyadmin:
+    image: 'phpmyadmin/phpmyadmin'
+    ports:
+        - 81:80
+    environment:
+        MYSQL_USERNAME: 'appuser'
+        MYSQL_ROOT_PASSWORD: 'root'
+        PMA_HOST: db
+
 volumes:
   dbdata:
     driver: local
