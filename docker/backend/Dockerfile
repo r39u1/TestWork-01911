@@ -1,4 +1,4 @@
-FROM php:8.0-fpm
+FROM php:8.1-fpm
 
 RUN apt-get update && apt-get install -y \
     build-essential \
@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     git \
     curl
 
-RUN pecl install xdebug-3.0.1 \
+RUN pecl install xdebug-3.1.5 \
     && docker-php-ext-enable xdebug
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
