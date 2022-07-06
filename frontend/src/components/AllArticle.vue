@@ -28,6 +28,8 @@
 <script>
 import axios from 'axios'
 
+axios.defaults.baseURL = process.env.VUE_APP_BACKEND_ENDPOINT
+
 export default {
     data() {
         return {
@@ -35,14 +37,14 @@ export default {
         }
     },
     created() {
-        axios.get('http://backend.testwork01911.local/api/articles')
+        axios.get('/api/articles')
             .then(response => {
                 this.articles = response.data;
             });
     },
     methods: {
         deleteArticle(id) {
-            axios.delete('http://backend.testwork1911.local/api/products/${id}')
+            axios.delete('/api/articles/${id}')
                 .then(response => {
                     let i = this.articles.map(data => data.id).indexOf(id);
                     this.products.splice(i, 1);
