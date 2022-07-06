@@ -26,7 +26,7 @@ export default {
     },
     methods: {
         addArticle() {
-            axios.post('/api/article', this.product)
+            axios.post('/api/articles', this.article)
                 .then(response => (
                     this.$router.push({ name: 'home' })
                 ))
