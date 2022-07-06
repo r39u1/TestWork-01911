@@ -1,29 +1,32 @@
 <template>
-    <div>
-        <h2>Articles</h2>
+    <div class="row">
+        <div class="twelve columns">
+            <h2>Articles</h2>
 
-        <router-link :to="{name: 'create'}">Create</router-link>
+            <router-link class="button button-primary" :to="{name: 'create'}">Create</router-link>
 
-        <table>
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th> 
-            </tr>   
-            </thead>
-            <tbody>
-            <tr v-for="article in articles" :key="article.id">
-                <td>{{ article.id }}</td>
-                <td>{{ article.title }}</td>
-                <td>
-                    <div>
-                        <router-link :to="{name: 'edit', params: { id: article.id }}">Edit</router-link>
-                        <button @click="deleteArticle(article.id)">Delete</button>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+            <table class="u-full-width">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th> 
+                    <th>Actions</th>
+                </tr>   
+                </thead>
+                <tbody>
+                <tr v-for="article in articles" :key="article.id">
+                    <td>{{ article.id }}</td>
+                    <td>{{ article.title }}</td>
+                    <td>
+                        <div>
+                            <router-link class="button" :to="{name: 'edit', params: { id: article.id }}">Edit</router-link>
+                            <button @click="deleteArticle(article.id)">Delete</button>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 

@@ -1,13 +1,13 @@
 <template>
-    <div>
-        <h3>Edit Article</h3>
-        <div>
+    <div class="row">        
+        <div class="twelve columns">
+            <h3>Edit Article</h3>
             <form @submit.prevent="updateArticle">
                 <label>Title</label>
-                <input type="text" v-model="article.title">
+                <input class="u-full-width" type="text" v-model="article.title">
                 <label>Text</label>
-                <textarea v-model="article.text"></textarea>
-                <button type="submit">Update</button>
+                <textarea class="u-full-width" v-model="article.text"></textarea>
+                <button class="button-primary" type="submit">Update</button>
             </form>
         </div>
     </div>
