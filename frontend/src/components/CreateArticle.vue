@@ -27,9 +27,7 @@ export default {
     methods: {
         addArticle() {
             axios.post('/api/articles', this.article)
-                .then(response => (
-                    this.$router.push({ name: 'home' })
-                ))
+                .then(() => this.$router.push({ name: 'index' }))
                 .catch(err => console.log(err))
                 .finally(() => this.loading = false)
         }

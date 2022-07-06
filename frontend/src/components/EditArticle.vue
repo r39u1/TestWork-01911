@@ -25,17 +25,15 @@ export default {
         }
     },
     created() {
-        axios.get('/api/articles/${this.$route.params.id}')
+        axios.get(`/api/articles/${this.$route.params.id}`)
             .then((response) => {
                 this.article = response.data;
             })
     },
     methods: {
         updateArticle() {
-            axios.patch('/api/articles/${this.$route.params.id}', this.article)
-                .then(response => (
-                    this.$router.push({ name: 'home' })
-                ))
+            axios.patch(`/api/articles/${this.$route.params.id}`, this.article)
+                .then(() => this.$router.push({ name: 'index' }))
                 .catch(err => console.log(err))
                 .finally(() => this.loading = false)
         }
