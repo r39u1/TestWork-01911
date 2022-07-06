@@ -1,14 +1,14 @@
 <template>
-  <AllArticle />
+  <RouterView />
 </template>
 
 <script>
-import AllArticle from './components/AllArticle.vue'
+import RouterView from './components/RouterView.vue'
 
 export default {
   name: 'App',
   components: {
-    AllArticle,
+    RouterView,
   }
 }
 </script>
