@@ -2,6 +2,8 @@
     <div>
         <h2>Articles</h2>
 
+        <router-link :to="{name: 'create'}">Create</router-link>
+
         <table>
             <thead>
             <tr>
@@ -15,7 +17,7 @@
                 <td>{{ article.title }}</td>
                 <td>
                     <div>
-                        <router-link :to="{name: 'edit', params: { id: product.id }}">Edit</router-link>
+                        <router-link :to="{name: 'edit', params: { id: article.id }}">Edit</router-link>
                         <button @click="deleteArticle(article.id)">Delete</button>
                     </div>
                 </td>
@@ -44,11 +46,10 @@ export default {
     },
     methods: {
         deleteArticle(id) {
-            axios.delete('/api/articles/${id}')
-                .then(response => {
+            axios.delete(`/api/articles/${id}`)
+                .then(() => {
                     let i = this.articles.map(data => data.id).indexOf(id);
-                    this.products.splice(i, 1);
-                    console.log(response)
+                    this.articles.splice(i, 1);
                 });
         }
     }
